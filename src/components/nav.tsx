@@ -11,7 +11,10 @@ import { useScrollDirection, usePrefersReducedMotion } from '@/hooks';
 import Menu from './menu';
 import { IconLogo } from './icons';
 
-const StyledHeader = styled.header<{ scrollDirection: string; scrolledToTop: boolean }>`
+const StyledHeader = styled.header<{
+  scrollDirection: string;
+  scrolledToTop: boolean;
+}>`
   ${({ theme }) => theme.mixins.flexBetween};
   position: fixed;
   top: 0;
@@ -34,8 +37,8 @@ const StyledHeader = styled.header<{ scrollDirection: string; scrolledToTop: boo
   }
 
   @media (prefers-reduced-motion: no-preference) {
-    ${props =>
-    props.scrollDirection === 'up' &&
+    ${(props) =>
+      props.scrollDirection === 'up' &&
       !props.scrolledToTop &&
       css`
         height: var(--nav-scroll-height);
@@ -44,8 +47,8 @@ const StyledHeader = styled.header<{ scrollDirection: string; scrolledToTop: boo
         box-shadow: 0 10px 30px -10px var(--navy-shadow);
       `};
 
-    ${props =>
-    props.scrollDirection === 'down' &&
+    ${(props) =>
+      props.scrollDirection === 'down' &&
       !props.scrolledToTop &&
       css`
         height: var(--nav-scroll-height);
@@ -121,10 +124,21 @@ const StyledLinks = styled.div`
       }
     }
   }
+`;
+
+const StyledRightSide = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 15px;
+`;
+
+const StyledResumeButton = styled.div`
+  @media (max-width: 768px) {
+    display: none;
+  }
 
   .resume-button {
     ${({ theme }) => theme.mixins.smallButton};
-    margin-left: 15px;
     font-size: var(--fz-xs);
   }
 `;
@@ -151,7 +165,7 @@ const Nav = ({ isHome = false }: NavProps) => {
   useEffect(() => {
     if (typeof window === 'undefined') return;
     setIsMounted(true);
-    
+
     if (prefersReducedMotion) {
       return;
     }
@@ -176,7 +190,12 @@ const Nav = ({ isHome = false }: NavProps) => {
   );
 
   const ResumeLink = (
-    <a className="resume-button" href="/resume.pdf" target="_blank" rel="noopener noreferrer">
+    <a
+      className="resume-button"
+      href="/resume.pdf"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
       Resume
     </a>
   );
@@ -184,7 +203,10 @@ const Nav = ({ isHome = false }: NavProps) => {
   // Always render the same structure to avoid hydration mismatches
   // Use CSS transitions instead of conditional rendering
   return (
-    <StyledHeader scrollDirection={scrollDirection} scrolledToTop={scrolledToTop}>
+    <StyledHeader
+      scrollDirection={scrollDirection}
+      scrolledToTop={scrolledToTop}
+    >
       <StyledNav>
         {prefersReducedMotion ? (
           <>
@@ -199,17 +221,21 @@ const Nav = ({ isHome = false }: NavProps) => {
                     </li>
                   ))}
               </ol>
-              <div>{ResumeLink}</div>
             </StyledLinks>
 
-            <Menu />
+            <StyledRightSide>
+              <StyledResumeButton>
+                <div>{ResumeLink}</div>
+              </StyledResumeButton>
+              <Menu />
+            </StyledRightSide>
           </>
         ) : (
           <>
             <TransitionGroup component={null}>
-              <CSSTransition 
+              <CSSTransition
                 nodeRef={logoRef}
-                classNames={fadeClass} 
+                classNames={fadeClass}
                 timeout={timeout}
                 appear={isMounted && isHome}
                 in={isMounted || !isHome}
@@ -225,17 +251,21 @@ const Nav = ({ isHome = false }: NavProps) => {
                     config.navLinks.map(({ url, name }, i) => {
                       const nodeRef = React.createRef<HTMLLIElement>();
                       return (
-                        <CSSTransition 
+                        <CSSTransition
                           key={i}
                           nodeRef={nodeRef}
-                          classNames={fadeDownClass} 
+                          classNames={fadeDownClass}
                           timeout={timeout}
                           appear={isMounted && isHome}
                           in={isMounted || !isHome}
                         >
-                          <li 
+                          <li
                             ref={nodeRef}
-                            style={isMounted && isHome ? { transitionDelay: `${i * 100}ms` } : undefined}
+                            style={
+                              isMounted && isHome
+                                ? { transitionDelay: `${i * 100}ms` }
+                                : undefined
+                            }
                           >
                             <Link href={url}>{name}</Link>
                           </li>
@@ -244,38 +274,50 @@ const Nav = ({ isHome = false }: NavProps) => {
                     })}
                 </TransitionGroup>
               </ol>
+            </StyledLinks>
+
+            <StyledRightSide>
+              <StyledResumeButton>
+                <TransitionGroup component={null}>
+                  <CSSTransition
+                    nodeRef={resumeRef}
+                    classNames={fadeDownClass}
+                    timeout={timeout}
+                    appear={isMounted && isHome}
+                    in={isMounted || !isHome}
+                  >
+                    <div
+                      ref={resumeRef}
+                      style={
+                        isMounted && isHome
+                          ? {
+                              transitionDelay: `${
+                                (config.navLinks?.length || 0) * 100
+                              }ms`,
+                            }
+                          : undefined
+                      }
+                    >
+                      {ResumeLink}
+                    </div>
+                  </CSSTransition>
+                </TransitionGroup>
+              </StyledResumeButton>
 
               <TransitionGroup component={null}>
-                <CSSTransition 
-                  nodeRef={resumeRef}
-                  classNames={fadeDownClass} 
+                <CSSTransition
+                  nodeRef={menuRef}
+                  classNames={fadeClass}
                   timeout={timeout}
                   appear={isMounted && isHome}
                   in={isMounted || !isHome}
                 >
-                  <div 
-                    ref={resumeRef}
-                    style={isMounted && isHome ? { transitionDelay: `${(config.navLinks?.length || 0) * 100}ms` } : undefined}
-                  >
-                    {ResumeLink}
+                  <div ref={menuRef}>
+                    <Menu />
                   </div>
                 </CSSTransition>
               </TransitionGroup>
-            </StyledLinks>
-
-            <TransitionGroup component={null}>
-              <CSSTransition 
-                nodeRef={menuRef}
-                classNames={fadeClass} 
-                timeout={timeout}
-                appear={isMounted && isHome}
-                in={isMounted || !isHome}
-              >
-                <div ref={menuRef}>
-                  <Menu />
-                </div>
-              </CSSTransition>
-            </TransitionGroup>
+            </StyledRightSide>
           </>
         )}
       </StyledNav>
@@ -284,4 +326,3 @@ const Nav = ({ isHome = false }: NavProps) => {
 };
 
 export default Nav;
-

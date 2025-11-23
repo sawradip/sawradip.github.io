@@ -1,4 +1,14 @@
 [
+
+  {
+    "date": "5",
+    "title": "Google Summer of Code 2023",
+    "cover": "./gsoc23.jpg",
+    "external": "https://summerofcode.withgoogle.com/archive/2023/projects/WIZaWTq5",
+    "position": "Contributor at OpenVINO Toolkit, Intel",
+    "tech": ["PyTorch", "OpenVINO", "Timm Models", "Optimum-Intel", "Hugging Face"],
+    "html": "<ul>\n<li><p align=\"left\">Selected as a contributor for <i>Google Summer of Code 2023</i> with <b>OpenVINO Toolkit</b> (Intel).</p></li>\n<li><p align=\"left\">Worked on integrating <i>Timm (PyTorch Image Models)</i> into the <b>Optimum-Intel</b> library, expanding OpenVINO's support for a broader range of PyTorch models.</p></li>\n<li><p align=\"left\">The project enhanced the bridge between Hugging Face's ecosystem and Intel's OpenVINO Toolkit, enabling developers to leverage OpenVINO's performance optimizations for Timm models.</p></li>\n<li><p align=\"left\">Successfully contributed to the <b>Optimum-Intel</b> repository, making Timm models accessible through OpenVINO's optimized inference pipeline.</p></li>\n</ul>"
+  },
   {
     "date": "4",
     "title": "Robi Datathon 2.0",
@@ -11,7 +21,7 @@
   {
     "date": "3",
     "title": "IEEE VIP Cup 2022",
-    "cover": "./vip22.PNG",
+    "cover": "./vip22.jpg",
     "external": "https://2022.ieeeicip.org/video-and-image-processing-cup/",
     "position": "3rd Position",
     "tech": ["Pytorch", "GANs", "Synthetic", "Detection"],

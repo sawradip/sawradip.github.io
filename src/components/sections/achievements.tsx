@@ -40,7 +40,7 @@ const StyledProject = styled.li`
     }
   }
 
-  &:nth-of-type(odd) {
+  &:nth-of-type(even) {
     .project-content {
       grid-column: 7 / -1;
       text-align: right;

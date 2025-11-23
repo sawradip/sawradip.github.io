@@ -221,7 +221,7 @@ const Research = ({
                   )}
                 </StyledResearchTitle>
                 <StyledResearchAuthors>{paper.authors}</StyledResearchAuthors>
-                <StyledResearchVenue>
+                <StyledResearchVenue>s
                   {paper.venue} • {paper.year}
                 </StyledResearchVenue>
                 {paper.abstract && (

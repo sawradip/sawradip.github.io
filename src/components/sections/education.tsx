@@ -34,7 +34,7 @@ const StyledEducationPanel = styled.div`
   .institution {
     display: block;
     margin-top: 8px;
-    font-size: var(--fz-xxl);
+    font-size: 2.6rem; /* Hard-coded larger font size */
     color: var(--green);
 
     a {

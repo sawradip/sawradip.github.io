@@ -42,35 +42,26 @@ const mixins: Mixins = {
   `,
 
   inlineLink: css`
-    display: inline-block;
+    display: inline;
     text-decoration: none;
     text-decoration-skip-ink: auto;
     position: relative;
     transition: var(--transition);
     color: var(--green);
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.2em;
     &:hover,
     &:focus,
     &:active {
       color: var(--green);
       outline: 0;
-      &:after {
-        width: 100%;
-      }
+      text-decoration-color: var(--green);
       & > * {
         color: var(--green) !important;
         transition: var(--transition);
       }
-    }
-    &:after {
-      content: '';
-      display: block;
-      width: 0;
-      height: 1px;
-      position: relative;
-      bottom: 0.37em;
-      background-color: var(--green);
-      transition: var(--transition);
-      opacity: 0.5;
     }
   `,
 
@@ -180,4 +171,3 @@ const mixins: Mixins = {
 };
 
 export default mixins;
-

@@ -1,0 +1,38 @@
+[
+  {
+    "date": "4",
+    "title": "Robi Datathon 2.0",
+    "cover": "./datathon2.jpeg",
+    "external": "https://www.robi.com.bd/en/datathon",
+    "position": "Top 10",
+    "tech": ["Big-data", "Time-series", "Visualization", "Analysis"],
+    "html": "<ul>\n<li><p align=\"left\">The Datathon competition was organized by the country's leading digital operator Robi. </p></li>\n<li><p align=\"left\"> Datathon 2.0 was powered by 'AWS' (Amazon Web Services), 'Huawei' was the platinum sponsor, and 'Brain station' was the cloud expertise partner, reads a press release.</p></li>\n<li><p align=\"left\">More than 2,800 participants from 11 countries took part in the Datathon 2.0 competition. </p></li>\n<li><p align=\"left\">Following a tough competition, 100 participants took part in the final round grouped into 25 teams.</p></li>\n<li><p align=\"left\">From those 25 teams, top 10 Teams were selected for further Presntation and Analysis.</p></li>\n</ul>"
+  },
+  {
+    "date": "3",
+    "title": "IEEE VIP Cup 2022",
+    "cover": "./vip22.PNG",
+    "external": "https://2022.ieeeicip.org/video-and-image-processing-cup/",
+    "position": "3rd Position",
+    "tech": ["Pytorch", "GANs", "Synthetic", "Detection"],
+    "html": "<ul>\n<li><p align=\"left\"> More than 60 teams from different universities around  the world participated, top three teams competed in the final round at <i>ICIP 2022</i>.</p></li>\n<li><p align=\"left\">We built a <i>generalized detector for identifying real, synthetic and partially manipulated image</i> by GANs as well as Diffusion models.</p></li>\n<li><p align=\"left\">Our <b>Team Sherlock</b> <i>co-mentoredby me</i> achieved 3rd Position and was awarded with a prize money of $1500.</p></li>\n</ul>"
+  },
+  {
+    "date": "2",
+    "title": "Deep Learning  Sprint 2022",
+    "cover": "./dlsprint.JPG",
+    "external": "https://www.kaggle.com/competitions/dlsprint/discussion/349991",
+    "position": "2nd Position",
+    "tech": ["Speech-2-text", "Wav2Vec2", "Augmentation", "Nemo"],
+    "html": "<ul>\n<li><p align=\"left\">59 teams from all over Bangladesh as well as overseas participated through Kaggle.</p></li>\n<li><p align=\"left\">We built a <b>Wav2Vec2.0 based Bangla text‑to‑speech language model</b>, that can correctly transcript Bangla Speech.</p></li>\n<li><p align=\"left\">Our <b>Team Ekush</b> achieved the 2nd Position and was awarded with a prize money of 60000 Taka.</p></li>\n</ul>"
+  },
+  {
+    "date": "1",
+    "title": "IEEE VIP Cup  2021",
+    "cover": "./vip21.JPG",
+    "external": "https://signalprocessingsociety.org/community-involvement/vip-cup-2021-icip-2021",
+    "position": "1st Position",
+    "tech": ["Augmentation", "Semi-supervised", "Heatmap", "Pose"],
+    "html": "<ul>\n<li><p align=\"left\">More than 50 teams from different universities around the world participated.</p></li>\n<li><p align=\"left\">We competed against <i>Hong Kong Polytechnic University</i> and <i>University in Moratuwa</i>, Sri Lanka teams in the final round.</p></li>\n<li><p align=\"left\">We built an In-bed Human Body Key-point and Pose detection System using Long Range InfraRed(LWIR) images at adverse lighting and covered conditions.</p></li>\n<li><p align=\"left\">Our <b>Team Samaritan</b> achieved 1st Position and was awarded with a prize money of $5000.</p></li>\n</ul>"
+  }
+]

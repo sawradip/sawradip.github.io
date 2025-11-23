@@ -1,11 +1,20 @@
-import { getJobsData, getEducationData, getCompetitionsData } from '@/utils/markdown';
+import {
+  getJobsDataFromJson,
+  getEducationDataFromJson,
+  getCompetitionsDataFromJson,
+} from '@/utils/jsonData';
+import type { MarkdownFile } from '@/utils/markdown';
 
-export async function getContent() {
+export async function getContent(): Promise<{
+  jobs: MarkdownFile[];
+  education: MarkdownFile[];
+  competitions: MarkdownFile[];
+}> {
   try {
     const [jobs, education, competitions] = await Promise.all([
-      getJobsData(),
-      getEducationData(),
-      getCompetitionsData(),
+      getJobsDataFromJson(),
+      getEducationDataFromJson(),
+      getCompetitionsDataFromJson(),
     ]);
 
     return {
@@ -22,4 +31,3 @@ export async function getContent() {
     };
   }
 }
-

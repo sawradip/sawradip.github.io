@@ -34,6 +34,10 @@ export const config = {
       url: '/#about',
     },
     {
+      name: 'Research',
+      url: '/#research',
+    },
+    {
       name: 'Education',
       url: '/#education',
     },
@@ -73,4 +77,3 @@ export const config = {
     viewOffset: { top: 0, right: 0, bottom: 0, left: 0 },
   }),
 };
-

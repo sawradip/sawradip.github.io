@@ -1,0 +1,46 @@
+[
+  {
+    "title": "Deep Learning Approaches for Computer Vision Tasks",
+    "authors": "Sawradip Saha, John Doe, Jane Smith",
+    "venue": "IEEE Conference on Computer Vision and Pattern Recognition (CVPR)",
+    "year": "2024",
+    "citations": 42,
+    "abstract": "This paper presents novel deep learning architectures for addressing complex computer vision challenges. We introduce a multi-scale feature extraction framework that significantly improves performance on object detection and semantic segmentation tasks. Our approach leverages attention mechanisms to focus on relevant image regions while maintaining computational efficiency. Experimental results demonstrate state-of-the-art performance on benchmark datasets including COCO and ImageNet.",
+    "url": "#",
+    "pdf": "#",
+    "arxiv": "#",
+    "code": "#"
+  },
+  {
+    "title": "Activity Recognition Using Multi-Modal Sensor Fusion",
+    "authors": "Sawradip Saha, Alice Johnson, Bob Williams",
+    "venue": "IEEE Transactions on Pattern Analysis and Machine Intelligence",
+    "year": "2023",
+    "citations": 28,
+    "abstract": "We propose a unified framework for human activity recognition that combines data from multiple sensor modalities including accelerometers, gyroscopes, and environmental sensors. The method employs a hierarchical fusion strategy that captures both temporal and spatial dependencies across sensor streams. Our architecture demonstrates robust performance across diverse activity categories and varying environmental conditions. The approach achieves significant improvements over single-modality baselines while maintaining real-time inference capabilities.",
+    "url": "#",
+    "pdf": "#",
+    "arxiv": "#"
+  },
+  {
+    "title": "Biomedical Signal Processing with Deep Neural Networks",
+    "authors": "Sawradip Saha, Charlie Brown, Diana Prince",
+    "venue": "IEEE Journal of Biomedical and Health Informatics",
+    "year": "2023",
+    "citations": 15,
+    "abstract": "This work explores the application of deep learning techniques to biomedical signal analysis, focusing on electrocardiogram (ECG) and electroencephalogram (EEG) data. We develop specialized neural network architectures that can effectively capture the unique characteristics of physiological signals. The proposed models achieve superior performance in anomaly detection and classification tasks compared to traditional signal processing methods. Clinical validation studies confirm the practical utility of our approach for early disease diagnosis.",
+    "url": "#",
+    "pdf": "#"
+  },
+  {
+    "title": "Document Analysis and Understanding Using Transformer Models",
+    "authors": "Sawradip Saha, Edward Norton, Fiona Apple",
+    "venue": "International Conference on Document Analysis and Recognition (ICDAR)",
+    "year": "2022",
+    "citations": 33,
+    "abstract": "We present a transformer-based architecture for comprehensive document understanding that integrates text, layout, and visual information. The model employs a novel attention mechanism that enables simultaneous processing of textual content and spatial relationships within documents. Our approach demonstrates exceptional performance on document classification, information extraction, and question-answering tasks. The framework is particularly effective for handling complex document structures including tables, figures, and multi-column layouts.",
+    "url": "#",
+    "pdf": "#",
+    "code": "#"
+  }
+]

@@ -1,46 +1,56 @@
 [
   {
-    "title": "Deep Learning Approaches for Computer Vision Tasks",
-    "authors": "Sawradip Saha, John Doe, Jane Smith",
-    "venue": "IEEE Conference on Computer Vision and Pattern Recognition (CVPR)",
+    "title": "Decoding human activities: Analyzing wearable accelerometer and gyroscope data for activity recognition",
+    "authors": "U Saha, S Saha, MT Kabir, SA Fattah, M Saquib",
+    "venue": "IEEE Sensors Letters 8 (8), 1-4",
     "year": "2024",
-    "citations": 42,
-    "abstract": "This paper presents novel deep learning architectures for addressing complex computer vision challenges. We introduce a multi-scale feature extraction framework that significantly improves performance on object detection and semantic segmentation tasks. Our approach leverages attention mechanisms to focus on relevant image regions while maintaining computational efficiency. Experimental results demonstrate state-of-the-art performance on benchmark datasets including COCO and ImageNet.",
-    "url": "#",
-    "pdf": "#",
-    "arxiv": "#",
-    "code": "#"
-  },
-  {
-    "title": "Activity Recognition Using Multi-Modal Sensor Fusion",
-    "authors": "Sawradip Saha, Alice Johnson, Bob Williams",
-    "venue": "IEEE Transactions on Pattern Analysis and Machine Intelligence",
-    "year": "2023",
-    "citations": 28,
-    "abstract": "We propose a unified framework for human activity recognition that combines data from multiple sensor modalities including accelerometers, gyroscopes, and environmental sensors. The method employs a hierarchical fusion strategy that captures both temporal and spatial dependencies across sensor streams. Our architecture demonstrates robust performance across diverse activity categories and varying environmental conditions. The approach achieves significant improvements over single-modality baselines while maintaining real-time inference capabilities.",
-    "url": "#",
-    "pdf": "#",
-    "arxiv": "#"
-  },
-  {
-    "title": "Biomedical Signal Processing with Deep Neural Networks",
-    "authors": "Sawradip Saha, Charlie Brown, Diana Prince",
-    "venue": "IEEE Journal of Biomedical and Health Informatics",
-    "year": "2023",
-    "citations": 15,
-    "abstract": "This work explores the application of deep learning techniques to biomedical signal analysis, focusing on electrocardiogram (ECG) and electroencephalogram (EEG) data. We develop specialized neural network architectures that can effectively capture the unique characteristics of physiological signals. The proposed models achieve superior performance in anomaly detection and classification tasks compared to traditional signal processing methods. Clinical validation studies confirm the practical utility of our approach for early disease diagnosis.",
+    "citations": 21,
     "url": "#",
     "pdf": "#"
   },
   {
-    "title": "Document Analysis and Understanding Using Transformer Models",
-    "authors": "Sawradip Saha, Edward Norton, Fiona Apple",
-    "venue": "International Conference on Document Analysis and Recognition (ICDAR)",
-    "year": "2022",
-    "citations": 33,
-    "abstract": "We present a transformer-based architecture for comprehensive document understanding that integrates text, layout, and visual information. The model employs a novel attention mechanism that enables simultaneous processing of textual content and spatial relationships within documents. Our approach demonstrates exceptional performance on document classification, information extraction, and question-answering tasks. The framework is particularly effective for handling complex document structures including tables, figures, and multi-column layouts.",
+    "title": "Human sleeping pose estimation from IR images for in-bed patient monitoring using image processing and deep learning techniques",
+    "authors": "SK Nahin, S Acharjee, S Saha, A Das, S Hossain, MA Haque",
+    "venue": "Heliyon 10 (17)",
+    "year": "2024",
+    "citations": 6,
     "url": "#",
-    "pdf": "#",
-    "code": "#"
+    "pdf": "#"
+  },
+  {
+    "title": "A siamese based one shot learning network with a watermark enhancement technique for historical watermark recognition",
+    "authors": "S Saha, U Saha, SD Sammya, S Ahmed, SA Fattah",
+    "venue": "2022 IEEE Region 10 Symposium (TENSYMP), 1-5",
+    "year": "2022",
+    "citations": 6,
+    "url": "#",
+    "pdf": "#"
+  },
+  {
+    "title": "Npix2Cpix: A GAN-based image-to-image translation network with retrieval-classification integration for watermark retrieval from historical document images",
+    "authors": "U Saha, S Saha, SA Fattah, M Saquib",
+    "venue": "IEEE Access",
+    "year": "2024",
+    "citations": 5,
+    "url": "#",
+    "pdf": "#"
+  },
+  {
+    "title": "PPG-based feature extraction for type ii diabetes prediction: A Machine Learning Approach",
+    "authors": "S Saha, U Saha, S Saha, SA Fattah",
+    "venue": "2024 2nd International Conference on Computer, Communication and Control",
+    "year": "2024",
+    "citations": 5,
+    "url": "#",
+    "pdf": "#"
+  },
+  {
+    "title": "Human Sleeping Pose Estimation in Domain Mismatch Condition Using Semi-Supervised and Transfer Learning Schemes",
+    "authors": "S Kabir, S Acharjee, S Saha, A Das, S Hossain, MA Haque",
+    "venue": "Available at SSRN 4372887",
+    "year": "2024",
+    "citations": 0,
+    "url": "#",
+    "pdf": "#"
   }
 ]

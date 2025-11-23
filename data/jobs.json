@@ -1,29 +1,37 @@
 [
   {
+    "date": "4",
+    "title": "Founder",
+    "company": "RunAgent AI",
+    "range": "May 2025 - Present",
+    "url": "https://run-agent.ai/",
+    "html": "<ul>\n<li>Founded and built RunAgent, an agent-native cloud platform that makes it easy for developers to run AI agents in production.</li>\n<li>Architected secure, scalable micro-VM–backed services with full streaming support for Python-based agent deployment.</li>\n<li>Developed language-agnostic SDKs with built-in authentication, observability, and memory capabilities.</li>\n<li>Enabled seamless integration of AI agents into real applications and workflows without infrastructure complexity.</li>\n</ul>"
+  },
+  {
     "date": "3",
-    "title": "ML Engineer Intern",
-    "company": "MagicMind",
-    "location": "Cupertino, CA",
-    "range": "Oct 2022 - Present",
-    "url": "https://magicmind.me/",
-    "html": "<ul>\n<li>Developed and implemented AI and large language models to enhance the storyline of a personal wellbeing game, resulting in a more engaging and personalized user experience.</li>\n<li>Utilized machine learning techniques to analyze player data and optimize gameplay, improving overall player satisfaction and retention.</li>\n<li>Contributed to the ongoing development and improvement of the company's proprietary game engine and technologies.</li>\n</ul>"
+    "title": "Founding Engineer",
+    "company": "FlowGenX AI",
+    "location": "Remote",
+    "range": "Nov 2024 - Sep 2025",
+    "url": "https://platform.flowgenx.ai/",
+    "html": "<ul>\n<li>Key contributor to scalable system architecture and backend development as a founding engineer.</li>\n<li>Designed and integrated AI capabilities to enhance system intelligence.</li>\n<li>Developed connectors to different Database & Data Warehouse applications.</li>\n</ul>"
   },
   {
     "date": "2",
-    "title": "Open-source Contributor",
-    "company": "PyTorch",
+    "title": "Machine Learning Engineer",
+    "company": "Composio",
     "location": "Remote",
-    "range": "June 2021 - Present",
-    "url": "https://github.com/pytorch/pytorch",
-    "html": "<ul>\n<li>Contributed to the PyTorch open-source project by adding documentation for the module forms of nn.FeatureAlphaDropout and nn.GLU to the torch.nn documentation.</li>\n<li>Demonstrated a commitment to improving open-source projects and expanding knowledge of neural network architectures through participation in the PyTorch community.</li>\n</ul>"
+    "range": "Nov 2023 - Oct 2024",
+    "url": "https://composio.dev/",
+    "html": "<ul>\n<li>Building production grade LLM tools and integrations for Agentic Workflows.</li>\n<li>Developed and implemented advanced parsers to generate tools for large language models (LLMs).</li>\n<li>Programmatic tool generation, improving efficiency and accuracy in handling complex data structures.</li>\n<li>Developed integrations with cutting-edge agentic platforms, enabling seamless workflow integration.</li>\n<li>Conducted research benchmarks on LLM function calling accuracy; published findings.</li>\n<li>Core contributor to the ComposioHQ/composio, OSS initiative to integrate AI Agents with a comprehensive toolset for enhancing agentic workflows and achieving high accuracy in tool calls.</li>\n</ul>"
   },
   {
     "date": "1",
-    "title": "Open-source Contributor",
-    "company": "Skorch",
-    "location": "Remote",
-    "range": "Nov 2022 - Present",
-    "url": "https://github.com/skorch-dev/skorch",
-    "html": "<ul>\n<li>Contributed to the Skorch open-source project by identifying and resolving an issue with the command used to install packages on Colab, ensuring the continued functionality of the project for users.</li>\n<li>Demonstrated experience with troubleshooting and problem-solving in a collaborative environment, effectively identifying and addressing issues within the project.</li>\n<li>Proactively sought out and implemented a robust solution for checking and installing packages on Colab, demonstrating an aptitude for identifying potential issues and finding effective solutions.</li>\n</ul>"
+    "title": "Co-founder & Chief Technology Officer",
+    "company": "Intelsense AI",
+    "location": "Dhaka, Bangladesh",
+    "range": "Jun 2023 - Present",
+    "url": "https://intelsense.ai/",
+    "html": "<ul>\n<li>Developed SOTA Bangla ASR, TTS, OCR systems.</li>\n<li>Working towards Bilingual LLM, RAG & seamless interoperability between Bangla & English.</li>\n<li>Solving Industry AI use cases in Bangladesh.</li>\n</ul>"
   }
 ]

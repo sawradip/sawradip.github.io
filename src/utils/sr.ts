@@ -1,7 +1,13 @@
-import ScrollReveal from 'scrollreveal';
-
 const isSSR = typeof window === 'undefined';
-const sr = isSSR ? null : ScrollReveal();
+let sr: any = null;
+
+if (!isSSR) {
+  // Dynamically import ScrollReveal only on client side
+  const ScrollReveal = require('scrollreveal');
+  sr = ScrollReveal.default ? ScrollReveal.default() : ScrollReveal({
+    reset: false,
+  });
+}
 
 export default sr;
 

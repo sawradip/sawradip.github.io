@@ -32,15 +32,15 @@ interface SideProps {
 }
 
 const Side = ({ children, isHome = false, orientation }: SideProps) => {
-  const [isMounted, setIsMounted] = useState(!isHome);
+  const [isMounted, setIsMounted] = useState(false);
   const prefersReducedMotion = usePrefersReducedMotion();
+  const sideRef = React.useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    setIsMounted(true);
     if (!isHome || prefersReducedMotion) {
       return;
     }
-    const timeout = setTimeout(() => setIsMounted(true), loaderDelay);
-    return () => clearTimeout(timeout);
   }, [isHome, prefersReducedMotion]);
 
   return (
@@ -49,11 +49,17 @@ const Side = ({ children, isHome = false, orientation }: SideProps) => {
         <>{children}</>
       ) : (
         <TransitionGroup component={null}>
-          {isMounted && (
-            <CSSTransition classNames={isHome ? 'fade' : ''} timeout={isHome ? loaderDelay : 0}>
+          <CSSTransition 
+            nodeRef={sideRef}
+            classNames={isHome ? 'fade' : ''} 
+            timeout={isHome ? loaderDelay : 0}
+            appear={isMounted && isHome}
+            in={isMounted || !isHome}
+          >
+            <div ref={sideRef}>
               {children}
-            </CSSTransition>
-          )}
+            </div>
+          </CSSTransition>
         </TransitionGroup>
       )}
     </StyledSideElement>

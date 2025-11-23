@@ -226,6 +226,8 @@ const Menu = () => {
   };
 
   useEffect(() => {
+    if (typeof window === 'undefined') return;
+    
     document.addEventListener('keydown', onKeyDown);
     window.addEventListener('resize', onResize);
 

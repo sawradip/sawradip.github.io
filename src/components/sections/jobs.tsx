@@ -228,7 +228,7 @@ const Jobs = () => {
                   key={i}
                   isActive={activeTabId === i}
                   onClick={() => setActiveTabId(i)}
-                  ref={el => (tabs.current[i] = el)}
+                  ref={el => { tabs.current[i] = el; }}
                   id={`tab-${i}`}
                   role="tab"
                   tabIndex={activeTabId === i ? 0 : -1}
@@ -245,10 +245,18 @@ const Jobs = () => {
           {jobsData &&
             jobsData.map(({ frontmatter, html }, i) => {
               const { title, url, company, range } = frontmatter;
+              const nodeRef = React.useRef<HTMLDivElement>(null);
 
               return (
-                <CSSTransition key={i} in={activeTabId === i} timeout={250} classNames="fade">
+                <CSSTransition 
+                  key={i} 
+                  nodeRef={nodeRef}
+                  in={activeTabId === i} 
+                  timeout={250} 
+                  classNames="fade"
+                >
                   <StyledTabPanel
+                    ref={nodeRef}
                     id={`panel-${i}`}
                     role="tabpanel"
                     tabIndex={activeTabId === i ? 0 : -1}

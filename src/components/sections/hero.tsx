@@ -53,12 +53,10 @@ const Hero = () => {
   const prefersReducedMotion = usePrefersReducedMotion();
 
   useEffect(() => {
+    setIsMounted(true);
     if (prefersReducedMotion) {
       return;
     }
-
-    const timeout = setTimeout(() => setIsMounted(true), navDelay);
-    return () => clearTimeout(timeout);
   }, [prefersReducedMotion]);
 
   const one = <h1>Hi, my name is</h1>;
@@ -95,12 +93,23 @@ const Hero = () => {
         </>
       ) : (
         <TransitionGroup component={null}>
-          {isMounted &&
-            items.map((item, i) => (
-              <CSSTransition key={i} classNames="fadeup" timeout={loaderDelay}>
-                <div style={{ transitionDelay: `${i + 1}00ms` }}>{item}</div>
+          {items.map((item, i) => {
+            const nodeRef = React.createRef<HTMLDivElement>();
+            return (
+              <CSSTransition 
+                key={i} 
+                nodeRef={nodeRef}
+                classNames="fadeup" 
+                timeout={loaderDelay}
+                appear={isMounted}
+                in={isMounted}
+              >
+                <div ref={nodeRef} style={isMounted ? { transitionDelay: `${i + 1}00ms` } : undefined}>
+                  {item}
+                </div>
               </CSSTransition>
-            ))}
+            );
+          })}
         </TransitionGroup>
       )}
     </StyledHeroSection>

@@ -3,10 +3,11 @@ import fonts from './fonts';
 import variables from './variables';
 import TransitionStyles from './TransitionStyles';
 import PrismStyles from './PrismStyles';
+import type { DefaultTheme } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
-  ${fonts};
-  ${variables};
+  ${fonts}
+  ${variables}
 
   html {
     box-sizing: border-box;
@@ -264,7 +265,7 @@ const GlobalStyle = createGlobalStyle`
     }
 
     &.inline-link {
-      ${({ theme }) => theme.mixins.inlineLink};
+      ${({ theme }: { theme: DefaultTheme }) => theme.mixins.inlineLink};
     }
   }
 
@@ -298,7 +299,7 @@ const GlobalStyle = createGlobalStyle`
     }
 
     & > a {
-      ${({ theme }) => theme.mixins.inlineLink};
+      ${({ theme }: { theme: DefaultTheme }) => theme.mixins.inlineLink};
     }
 
     & > code {
@@ -360,7 +361,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   .skip-to-content {
-    ${({ theme }) => theme.mixins.button};
+    ${({ theme }: { theme: DefaultTheme }) => theme.mixins.button};
     position: absolute;
     top: auto;
     left: -999px;
@@ -408,7 +409,7 @@ const GlobalStyle = createGlobalStyle`
     }
 
     a {
-      ${({ theme }) => theme.mixins.inlineLink};
+      ${({ theme }: { theme: DefaultTheme }) => theme.mixins.inlineLink};
       line-height: 1.5;
     }
   }
@@ -426,7 +427,7 @@ const GlobalStyle = createGlobalStyle`
     }
 
     a {
-      ${({ theme }) => theme.mixins.inlineLink};
+      ${({ theme }: { theme: DefaultTheme }) => theme.mixins.inlineLink};
       font-family: var(--font-mono);
       font-size: var(--fz-sm);
       font-weight: 600;

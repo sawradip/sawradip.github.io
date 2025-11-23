@@ -134,29 +134,31 @@ interface NavProps {
 }
 
 const Nav = ({ isHome = false }: NavProps) => {
-  const [isMounted, setIsMounted] = useState(!isHome);
+  const [isMounted, setIsMounted] = useState(false);
   const scrollDirection = useScrollDirection({ initialDirection: 'down' });
   const [scrolledToTop, setScrolledToTop] = useState(true);
   const prefersReducedMotion = usePrefersReducedMotion();
   const pathname = usePathname();
+  const logoRef = React.useRef<HTMLDivElement>(null);
+  const resumeRef = React.useRef<HTMLDivElement>(null);
+  const menuRef = React.useRef<HTMLDivElement>(null);
 
   const handleScroll = () => {
+    if (typeof window === 'undefined') return;
     setScrolledToTop(window.pageYOffset < 50);
   };
 
   useEffect(() => {
+    if (typeof window === 'undefined') return;
+    setIsMounted(true);
+    
     if (prefersReducedMotion) {
       return;
     }
 
-    const timeout = setTimeout(() => {
-      setIsMounted(true);
-    }, 100);
-
     window.addEventListener('scroll', handleScroll);
 
     return () => {
-      clearTimeout(timeout);
       window.removeEventListener('scroll', handleScroll);
     };
   }, [prefersReducedMotion]);
@@ -166,7 +168,7 @@ const Nav = ({ isHome = false }: NavProps) => {
   const fadeDownClass = isHome ? 'fadedown' : '';
 
   const Logo = (
-    <div className="logo" tabIndex={-1}>
+    <div className="logo" tabIndex={-1} ref={logoRef}>
       <Link href="/" aria-label="home">
         <IconLogo />
       </Link>
@@ -179,6 +181,8 @@ const Nav = ({ isHome = false }: NavProps) => {
     </a>
   );
 
+  // Always render the same structure to avoid hydration mismatches
+  // Use CSS transitions instead of conditional rendering
   return (
     <StyledHeader scrollDirection={scrollDirection} scrolledToTop={scrolledToTop}>
       <StyledNav>
@@ -203,45 +207,74 @@ const Nav = ({ isHome = false }: NavProps) => {
         ) : (
           <>
             <TransitionGroup component={null}>
-              {isMounted && (
-                <CSSTransition classNames={fadeClass} timeout={timeout}>
-                  <>{Logo}</>
-                </CSSTransition>
-              )}
+              <CSSTransition 
+                nodeRef={logoRef}
+                classNames={fadeClass} 
+                timeout={timeout}
+                appear={isMounted && isHome}
+                in={isMounted || !isHome}
+              >
+                <>{Logo}</>
+              </CSSTransition>
             </TransitionGroup>
 
             <StyledLinks>
               <ol>
                 <TransitionGroup component={null}>
-                  {isMounted &&
-                    config.navLinks &&
-                    config.navLinks.map(({ url, name }, i) => (
-                      <CSSTransition key={i} classNames={fadeDownClass} timeout={timeout}>
-                        <li key={i} style={{ transitionDelay: `${isHome ? i * 100 : 0}ms` }}>
-                          <Link href={url}>{name}</Link>
-                        </li>
-                      </CSSTransition>
-                    ))}
+                  {config.navLinks &&
+                    config.navLinks.map(({ url, name }, i) => {
+                      const nodeRef = React.createRef<HTMLLIElement>();
+                      return (
+                        <CSSTransition 
+                          key={i}
+                          nodeRef={nodeRef}
+                          classNames={fadeDownClass} 
+                          timeout={timeout}
+                          appear={isMounted && isHome}
+                          in={isMounted || !isHome}
+                        >
+                          <li 
+                            ref={nodeRef}
+                            style={isMounted && isHome ? { transitionDelay: `${i * 100}ms` } : undefined}
+                          >
+                            <Link href={url}>{name}</Link>
+                          </li>
+                        </CSSTransition>
+                      );
+                    })}
                 </TransitionGroup>
               </ol>
 
               <TransitionGroup component={null}>
-                {isMounted && (
-                  <CSSTransition classNames={fadeDownClass} timeout={timeout}>
-                    <div style={{ transitionDelay: `${isHome ? (config.navLinks?.length || 0) * 100 : 0}ms` }}>
-                      {ResumeLink}
-                    </div>
-                  </CSSTransition>
-                )}
+                <CSSTransition 
+                  nodeRef={resumeRef}
+                  classNames={fadeDownClass} 
+                  timeout={timeout}
+                  appear={isMounted && isHome}
+                  in={isMounted || !isHome}
+                >
+                  <div 
+                    ref={resumeRef}
+                    style={isMounted && isHome ? { transitionDelay: `${(config.navLinks?.length || 0) * 100}ms` } : undefined}
+                  >
+                    {ResumeLink}
+                  </div>
+                </CSSTransition>
               </TransitionGroup>
             </StyledLinks>
 
             <TransitionGroup component={null}>
-              {isMounted && (
-                <CSSTransition classNames={fadeClass} timeout={timeout}>
+              <CSSTransition 
+                nodeRef={menuRef}
+                classNames={fadeClass} 
+                timeout={timeout}
+                appear={isMounted && isHome}
+                in={isMounted || !isHome}
+              >
+                <div ref={menuRef}>
                   <Menu />
-                </CSSTransition>
-              )}
+                </div>
+              </CSSTransition>
             </TransitionGroup>
           </>
         )}

@@ -142,19 +142,36 @@ const GlobalStyle = createGlobalStyle`
         padding: 0 25px;
       }
     }
+
+    /* Ensure sections are properly contained */
+    section {
+      width: 100%;
+      box-sizing: border-box;
+    }
   }
 
   section {
     margin: 0 auto;
     padding: 100px 0;
     max-width: 1000px;
+    min-height: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 
     @media (max-width: 768px) {
       padding: 80px 0;
+      min-height: 400px;
     }
 
     @media (max-width: 480px) {
       padding: 60px 0;
+      min-height: 300px;
+    }
+
+    /* Hero section should be full height */
+    &#hero {
+      min-height: 100vh;
     }
   }
 

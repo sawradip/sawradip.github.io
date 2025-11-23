@@ -9,7 +9,8 @@ import sr from '@/utils/sr';
 import { usePrefersReducedMotion } from '@/hooks';
 
 const StyledJobsSection = styled.section`
-  max-width: 700px;
+  max-width: 1000px;
+  margin: 0 auto;
 
   .inner {
     display: flex;
@@ -145,10 +146,14 @@ const StyledTabPanel = styled.div`
   }
 `;
 
-// Placeholder data - will be replaced with markdown processing
-const educationData: any[] = [];
+import type { MarkdownFile } from '@/utils/markdown';
 
-const Education = () => {
+interface EducationProps {
+  data?: MarkdownFile[];
+}
+
+const Education = ({ data = [] }: EducationProps) => {
+  const educationData = data;
   const [activeTabId, setActiveTabId] = useState(0);
   const [tabFocus, setTabFocus] = useState<number | null>(null);
   const tabs = useRef<(HTMLButtonElement | null)[]>([]);
@@ -237,7 +242,7 @@ const Education = () => {
         <StyledTabPanels>
           {educationData &&
             educationData.map(({ frontmatter, html }, i) => {
-              const { title, url, range, location, institution } = frontmatter;
+              const { title, url } = frontmatter;
               const nodeRef = React.useRef<HTMLDivElement>(null);
 
               return (
@@ -262,12 +267,12 @@ const Education = () => {
                       <span className="company">
                         &nbsp;@&nbsp;
                         <a href={url} className="inline-link">
-                          {institution}
+                          {frontmatter.institution || frontmatter.company}
                         </a>
                       </span>
                     </h3>
-                    <p className="range">{location}</p>
-                    <p className="range">{range}</p>
+                    {frontmatter.location && <p className="range">{frontmatter.location}</p>}
+                    <p className="range">{frontmatter.range}</p>
 
                     <div dangerouslySetInnerHTML={{ __html: html }} />
                   </StyledTabPanel>

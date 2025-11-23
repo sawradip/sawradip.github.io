@@ -304,10 +304,20 @@ const StyledProject = styled.li`
   }
 `;
 
-// Placeholder data - will be replaced with markdown processing
-const featuredProjects: any[] = [];
+import type { MarkdownFile } from '@/utils/markdown';
 
-const Competitions = () => {
+interface CompetitionsProps {
+  data?: MarkdownFile[];
+}
+
+const Competitions = ({ data = [] }: CompetitionsProps) => {
+  // Transform data to match expected structure
+  const featuredProjects = data.map(item => ({
+    node: {
+      frontmatter: item.frontmatter,
+      html: item.html,
+    },
+  }));
   const revealTitle = useRef<HTMLHeadingElement>(null);
   const revealProjects = useRef<(HTMLLIElement | null)[]>([]);
   const prefersReducedMotion = usePrefersReducedMotion();
@@ -332,7 +342,7 @@ const Competitions = () => {
   }
 
   return (
-    <section id="competitions">
+    <section id="competitions" style={{ margin: '0 auto', maxWidth: '1000px' }}>
       <h2 className="numbered-heading" ref={revealTitle}>
         Some Competitions I've Cracked
       </h2>
@@ -385,7 +395,7 @@ const Competitions = () => {
                   <a href={external ? external : github ? github : '#'}>
                     {cover && (
                       <Image
-                        src={cover}
+                        src={cover.startsWith('/') ? cover : `/images/${cover.replace('./', '')}`}
                         alt={title}
                         className="img"
                         width={700}

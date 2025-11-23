@@ -1,27 +1,24 @@
-'use client';
-
 import React from 'react';
-import styled from 'styled-components';
 import Hero from '@/components/sections/hero';
 import About from '@/components/sections/about';
 import Education from '@/components/sections/education';
 import Jobs from '@/components/sections/jobs';
 import Competitions from '@/components/sections/competitions';
 import Contact from '@/components/sections/contact';
+import { getContent } from '@/lib/getContent';
+import MainContainer from '@/components/main-container';
 
-const StyledMainContainer = styled.main`
-  counter-reset: section;
-`;
+export default async function Home() {
+  const { jobs, education, competitions } = await getContent();
 
-export default function Home() {
   return (
-    <StyledMainContainer className="fillHeight">
+    <MainContainer>
       <Hero />
       <About />
-      <Education />
-      <Jobs />
-      <Competitions />
+      <Education data={education} />
+      <Jobs data={jobs} />
+      <Competitions data={competitions} />
       <Contact />
-    </StyledMainContainer>
+    </MainContainer>
   );
 }

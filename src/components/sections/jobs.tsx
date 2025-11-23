@@ -9,7 +9,8 @@ import sr from '@/utils/sr';
 import { usePrefersReducedMotion } from '@/hooks';
 
 const StyledJobsSection = styled.section`
-  max-width: 700px;
+  max-width: 1000px;
+  margin: 0 auto;
 
   .inner {
     display: flex;
@@ -146,21 +147,14 @@ const StyledTabPanel = styled.div`
   }
 `;
 
-// Placeholder data - will be replaced with markdown processing
-const jobsData = [
-  {
-    frontmatter: {
-      title: 'ML Engineer Intern',
-      company: 'MagicMind',
-      location: 'Cupertino, CA',
-      range: 'Oct 2022 - Present',
-      url: 'https://magicmind.me/',
-    },
-    html: '<ul><li>Developed and implemented AI and large language models to enhance the storyline of a personal wellbeing game</li><li>Utilized machine learning techniques to analyze player data and optimize gameplay</li><li>Contributed to the ongoing development and improvement of the company\'s proprietary game engine and technologies</li></ul>',
-  },
-];
+import type { MarkdownFile } from '@/utils/markdown';
 
-const Jobs = () => {
+interface JobsProps {
+  data?: MarkdownFile[];
+}
+
+const Jobs = ({ data = [] }: JobsProps) => {
+  const jobsData = data;
   const [activeTabId, setActiveTabId] = useState(0);
   const [tabFocus, setTabFocus] = useState<number | null>(null);
   const tabs = useRef<(HTMLButtonElement | null)[]>([]);
@@ -244,7 +238,7 @@ const Jobs = () => {
         <StyledTabPanels>
           {jobsData &&
             jobsData.map(({ frontmatter, html }, i) => {
-              const { title, url, company, range } = frontmatter;
+              const { title, url, company, range, location } = frontmatter;
               const nodeRef = React.useRef<HTMLDivElement>(null);
 
               return (
@@ -273,6 +267,7 @@ const Jobs = () => {
                       </span>
                     </h3>
 
+                    {location && <p className="range">{location}</p>}
                     <p className="range">{range}</p>
 
                     <div dangerouslySetInnerHTML={{ __html: html }} />

@@ -8,7 +8,8 @@ import sr from '@/utils/sr';
 import { usePrefersReducedMotion } from '@/hooks';
 
 const StyledAboutSection = styled.section`
-  max-width: 900px;
+  max-width: 1000px;
+  margin: 0 auto;
 
   .inner {
     display: grid;

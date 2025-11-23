@@ -5,8 +5,8 @@
     "venue": "IEEE Sensors Letters 8 (8), 1-4",
     "year": "2024",
     "citations": 21,
-    "url": "#",
-    "pdf": "#"
+    "url": "https://ieeexplore.ieee.org/abstract/document/10585302",
+    "pdf": "https://arxiv.org/pdf/2310.02011"
   },
   {
     "title": "Human sleeping pose estimation from IR images for in-bed patient monitoring using image processing and deep learning techniques",
@@ -14,8 +14,8 @@
     "venue": "Heliyon 10 (17)",
     "year": "2024",
     "citations": 6,
-    "url": "#",
-    "pdf": "#"
+    "url": "https://www.cell.com/heliyon/fulltext/S2405-8440(24)12854-X",
+    "pdf": "https://www.cell.com/action/showPdf?pii=S2405-8440(24)12854-X"
   },
   {
     "title": "A siamese based one shot learning network with a watermark enhancement technique for historical watermark recognition",
@@ -23,8 +23,8 @@
     "venue": "2022 IEEE Region 10 Symposium (TENSYMP), 1-5",
     "year": "2022",
     "citations": 6,
-    "url": "#",
-    "pdf": "#"
+    "url": "https://ieeexplore.ieee.org/abstract/document/9864543",
+    "pdf": "https://www.researchgate.net/profile/Utsab-Saha-2/publication/363100465_A_Siamese_Based_One_Shot_Learning_Network_with_a_Watermark_Enhancement_Technique_for_Historical_Watermark_Recognition/links/65cb18b41e1ec12eff8a840b/A-Siamese-Based-One-Shot-Learning-Network-with-a-Watermark-Enhancement-Technique-for-Historical-Watermark-Recognition.pdf"
   },
   {
     "title": "Npix2Cpix: A GAN-based image-to-image translation network with retrieval-classification integration for watermark retrieval from historical document images",
@@ -32,7 +32,7 @@
     "venue": "IEEE Access",
     "year": "2024",
     "citations": 5,
-    "url": "#",
+    "url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=YdqvDuIAAAAJ&citation_for_view=YdqvDuIAAAAJ:9yKSN-GCB0IC",
     "pdf": "#"
   },
   {
@@ -41,16 +41,7 @@
     "venue": "2024 2nd International Conference on Computer, Communication and Control",
     "year": "2024",
     "citations": 5,
-    "url": "#",
-    "pdf": "#"
-  },
-  {
-    "title": "Human Sleeping Pose Estimation in Domain Mismatch Condition Using Semi-Supervised and Transfer Learning Schemes",
-    "authors": "S Kabir, S Acharjee, S Saha, A Das, S Hossain, MA Haque",
-    "venue": "Available at SSRN 4372887",
-    "year": "2024",
-    "citations": 0,
-    "url": "#",
-    "pdf": "#"
+    "url": "https://ieeexplore.ieee.org/abstract/document/10486372",
+    "pdf": "https://www.researchgate.net/profile/Utsab-Saha-2/publication/379573499_PPG-Based_Feature_Extraction_for_Type_II_Diabetes_Prediction_A_Machine_Learning_Approach/links/660fb6afb839e05a20bd9dd5/PPG-Based-Feature-Extraction-for-Type-II-Diabetes-Prediction-A-Machine-Learning-Approach.pdf"
   }
 ]

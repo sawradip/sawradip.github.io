@@ -15,16 +15,8 @@ export const config = {
       url: 'https://facebook.com/sawradip',
     },
     {
-      name: 'Twitter',
-      url: 'https://twitter.com/sawradip',
-    },
-    {
-      name: 'StackOverflow',
-      url: 'https://stackoverflow.com/users/13945920/sawradip-saha',
-    },
-    {
-      name: 'Kaggle',
-      url: 'https://www.kaggle.com/sawradipsaha',
+      name: 'GoogleScholar',
+      url: 'https://scholar.google.com/citations?user=YOUR_USER_ID',
     },
   ],
 
@@ -38,16 +30,16 @@ export const config = {
       url: '/#research',
     },
     {
+      name: 'Achievements',
+      url: '/#achievements',
+    },
+    {
       name: 'Education',
       url: '/#education',
     },
     {
       name: 'Experience',
       url: '/#jobs',
-    },
-    {
-      name: 'Competitions',
-      url: '/#competitions',
     },
     {
       name: 'Contact',

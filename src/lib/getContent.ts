@@ -1,33 +1,33 @@
 import {
   getJobsDataFromJson,
   getEducationDataFromJson,
-  getCompetitionsDataFromJson,
+  getAchievementsDataFromJson,
 } from '@/utils/jsonData';
 import type { MarkdownFile } from '@/utils/markdown';
 
 export async function getContent(): Promise<{
   jobs: MarkdownFile[];
   education: MarkdownFile[];
-  competitions: MarkdownFile[];
+  achievements: MarkdownFile[];
 }> {
   try {
-    const [jobs, education, competitions] = await Promise.all([
+    const [jobs, education, achievements] = await Promise.all([
       getJobsDataFromJson(),
       getEducationDataFromJson(),
-      getCompetitionsDataFromJson(),
+      getAchievementsDataFromJson(),
     ]);
 
     return {
       jobs,
       education,
-      competitions,
+      achievements,
     };
   } catch (error) {
     console.error('Error loading content:', error);
     return {
       jobs: [],
       education: [],
-      competitions: [],
+      achievements: [],
     };
   }
 }

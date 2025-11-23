@@ -74,9 +74,9 @@ export async function getEducationDataFromJson(): Promise<MarkdownFile[]> {
 }
 
 /**
- * Get competitions data (transformed to MarkdownFile format)
+ * Get achievements data (transformed to MarkdownFile format)
  */
-export async function getCompetitionsDataFromJson(): Promise<MarkdownFile[]> {
-  const data = await loadJsonData<JsonDataFile>('competitions.json');
+export async function getAchievementsDataFromJson(): Promise<MarkdownFile[]> {
+  const data = await loadJsonData<JsonDataFile>('achievements.json');
   return data.map(transformToMarkdownFile);
 }

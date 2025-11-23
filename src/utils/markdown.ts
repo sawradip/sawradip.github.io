@@ -13,14 +13,14 @@ export interface MarkdownFile {
 /**
  * Process a single markdown file
  */
-export async function processMarkdownFile(filePath: string): Promise<MarkdownFile> {
+export async function processMarkdownFile(
+  filePath: string
+): Promise<MarkdownFile> {
   const fileContents = fs.readFileSync(filePath, 'utf8');
   const { data, content } = matter(fileContents);
-  
-  const processedContent = await remark()
-    .use(remarkHtml)
-    .process(content);
-  
+
+  const processedContent = await remark().use(remarkHtml).process(content);
+
   const html = processedContent.toString();
   const slug = path.basename(path.dirname(filePath));
 
@@ -34,9 +34,11 @@ export async function processMarkdownFile(filePath: string): Promise<MarkdownFil
 /**
  * Get all markdown files from a directory
  */
-export async function getMarkdownFiles(directory: string): Promise<MarkdownFile[]> {
+export async function getMarkdownFiles(
+  directory: string
+): Promise<MarkdownFile[]> {
   const files: MarkdownFile[] = [];
-  
+
   if (!fs.existsSync(directory)) {
     return files;
   }
@@ -45,7 +47,7 @@ export async function getMarkdownFiles(directory: string): Promise<MarkdownFile[
 
   for (const entry of entries) {
     const fullPath = path.join(directory, entry.name);
-    
+
     if (entry.isDirectory()) {
       const indexPath = path.join(fullPath, 'index.md');
       if (fs.existsSync(indexPath)) {
@@ -75,10 +77,9 @@ export async function getEducationData(): Promise<MarkdownFile[]> {
 }
 
 /**
- * Get competitions data
+ * Get achievements data
  */
-export async function getCompetitionsData(): Promise<MarkdownFile[]> {
-  const competitionsDir = path.join(process.cwd(), 'content', 'competitions');
-  return getMarkdownFiles(competitionsDir);
+export async function getAchievementsData(): Promise<MarkdownFile[]> {
+  const achievementsDir = path.join(process.cwd(), 'content', 'achievements');
+  return getMarkdownFiles(achievementsDir);
 }
-

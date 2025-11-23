@@ -38,7 +38,7 @@ const StyledHeader = styled.header<{
 
   @media (prefers-reduced-motion: no-preference) {
     ${(props) =>
-      props.scrollDirection === 'up' &&
+    props.scrollDirection === 'up' &&
       !props.scrolledToTop &&
       css`
         height: var(--nav-scroll-height);
@@ -48,7 +48,7 @@ const StyledHeader = styled.header<{
       `};
 
     ${(props) =>
-      props.scrollDirection === 'down' &&
+    props.scrollDirection === 'down' &&
       !props.scrolledToTop &&
       css`
         height: var(--nav-scroll-height);
@@ -165,7 +165,7 @@ const Nav = ({ isHome = false }: NavProps) => {
   useEffect(() => {
     if (typeof window === 'undefined') return;
     setIsMounted(true);
-
+    
     if (prefersReducedMotion) {
       return;
     }
@@ -227,15 +227,15 @@ const Nav = ({ isHome = false }: NavProps) => {
               <StyledResumeButton>
                 <div>{ResumeLink}</div>
               </StyledResumeButton>
-              <Menu />
+            <Menu />
             </StyledRightSide>
           </>
         ) : (
           <>
             <TransitionGroup component={null}>
-              <CSSTransition
+              <CSSTransition 
                 nodeRef={logoRef}
-                classNames={fadeClass}
+                classNames={fadeClass} 
                 timeout={timeout}
                 appear={isMounted && isHome}
                 in={isMounted || !isHome}
@@ -251,15 +251,15 @@ const Nav = ({ isHome = false }: NavProps) => {
                     config.navLinks.map(({ url, name }, i) => {
                       const nodeRef = React.createRef<HTMLLIElement>();
                       return (
-                        <CSSTransition
+                        <CSSTransition 
                           key={i}
                           nodeRef={nodeRef}
-                          classNames={fadeDownClass}
+                          classNames={fadeDownClass} 
                           timeout={timeout}
                           appear={isMounted && isHome}
                           in={isMounted || !isHome}
                         >
-                          <li
+                          <li 
                             ref={nodeRef}
                             style={
                               isMounted && isHome
@@ -278,16 +278,16 @@ const Nav = ({ isHome = false }: NavProps) => {
 
             <StyledRightSide>
               <StyledResumeButton>
-                <TransitionGroup component={null}>
-                  <CSSTransition
-                    nodeRef={resumeRef}
-                    classNames={fadeDownClass}
-                    timeout={timeout}
-                    appear={isMounted && isHome}
-                    in={isMounted || !isHome}
-                  >
-                    <div
-                      ref={resumeRef}
+              <TransitionGroup component={null}>
+                <CSSTransition 
+                  nodeRef={resumeRef}
+                  classNames={fadeDownClass} 
+                  timeout={timeout}
+                  appear={isMounted && isHome}
+                  in={isMounted || !isHome}
+                >
+                  <div 
+                    ref={resumeRef}
                       style={
                         isMounted && isHome
                           ? {
@@ -297,26 +297,26 @@ const Nav = ({ isHome = false }: NavProps) => {
                             }
                           : undefined
                       }
-                    >
-                      {ResumeLink}
-                    </div>
-                  </CSSTransition>
-                </TransitionGroup>
-              </StyledResumeButton>
-
-              <TransitionGroup component={null}>
-                <CSSTransition
-                  nodeRef={menuRef}
-                  classNames={fadeClass}
-                  timeout={timeout}
-                  appear={isMounted && isHome}
-                  in={isMounted || !isHome}
-                >
-                  <div ref={menuRef}>
-                    <Menu />
+                  >
+                    {ResumeLink}
                   </div>
                 </CSSTransition>
               </TransitionGroup>
+              </StyledResumeButton>
+
+            <TransitionGroup component={null}>
+              <CSSTransition 
+                nodeRef={menuRef}
+                classNames={fadeClass} 
+                timeout={timeout}
+                appear={isMounted && isHome}
+                in={isMounted || !isHome}
+              >
+                <div ref={menuRef}>
+                  <Menu />
+                </div>
+              </CSSTransition>
+            </TransitionGroup>
             </StyledRightSide>
           </>
         )}

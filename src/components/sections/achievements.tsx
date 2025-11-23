@@ -306,13 +306,13 @@ const StyledProject = styled.li`
 
 import type { MarkdownFile } from '@/utils/markdown';
 
-interface CompetitionsProps {
+interface AchievementsProps {
   data?: MarkdownFile[];
 }
 
-const Competitions = ({ data = [] }: CompetitionsProps) => {
+const Achievements = ({ data = [] }: AchievementsProps) => {
   // Transform data to match expected structure
-  const featuredProjects = data.map(item => ({
+  const featuredProjects = data.map((item) => ({
     node: {
       frontmatter: item.frontmatter,
       html: item.html,
@@ -342,19 +342,25 @@ const Competitions = ({ data = [] }: CompetitionsProps) => {
   }
 
   return (
-    <section id="competitions" style={{ margin: '0 auto', maxWidth: '1000px' }}>
+    <section id="achievements" style={{ margin: '0 auto', maxWidth: '1000px' }}>
       <h2 className="numbered-heading" ref={revealTitle}>
-        Some Competitions I've Cracked
+        Some of my achievements
       </h2>
 
       <StyledProjectsGrid>
         {featuredProjects &&
           featuredProjects.map(({ node }, i) => {
             const { frontmatter, html } = node;
-            const { external, title, tech, github, cover, position } = frontmatter;
+            const { external, title, tech, github, cover, position } =
+              frontmatter;
 
             return (
-              <StyledProject key={i} ref={el => { revealProjects.current[i] = el; }}>
+              <StyledProject
+                key={i}
+                ref={(el) => {
+                  revealProjects.current[i] = el;
+                }}
+              >
                 <div className="project-content">
                   <div>
                     <p className="project-overline">{position}</p>
@@ -383,7 +389,11 @@ const Competitions = ({ data = [] }: CompetitionsProps) => {
                         </a>
                       )}
                       {external && (
-                        <a href={external} aria-label="External Link" className="external">
+                        <a
+                          href={external}
+                          aria-label="External Link"
+                          className="external"
+                        >
                           <Icon name="External" />
                         </a>
                       )}
@@ -395,7 +405,11 @@ const Competitions = ({ data = [] }: CompetitionsProps) => {
                   <a href={external ? external : github ? github : '#'}>
                     {cover && (
                       <Image
-                        src={cover.startsWith('/') ? cover : `/images/${cover.replace('./', '')}`}
+                        src={
+                          cover.startsWith('/')
+                            ? cover
+                            : `/images/${cover.replace('./', '')}`
+                        }
                         alt={title}
                         className="img"
                         width={700}
@@ -413,5 +427,4 @@ const Competitions = ({ data = [] }: CompetitionsProps) => {
   );
 };
 
-export default Competitions;
-
+export default Achievements;

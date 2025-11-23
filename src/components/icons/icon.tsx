@@ -12,10 +12,8 @@ import IconLoader from './loader';
 import IconLogo from './logo';
 import IconPlayStore from './playstore';
 import IconStar from './star';
-import IconTwitter from './twitter';
 import IconFacebook from './facebook';
-import IconKaggle from './kaggle';
-import IconStackoverflow from './stackoverflow';
+import IconGoogleScholar from './googlescholar';
 
 interface IconProps {
   name: string;
@@ -49,18 +47,13 @@ const Icon = ({ name }: IconProps) => {
       return <IconPlayStore />;
     case 'Star':
       return <IconStar />;
-    case 'Twitter':
-      return <IconTwitter />;
     case 'Facebook':
       return <IconFacebook />;
-    case 'Kaggle':
-      return <IconKaggle />;
-    case 'StackOverflow':
-      return <IconStackoverflow />;
+    case 'GoogleScholar':
+      return <IconGoogleScholar />;
     default:
       return <IconExternal />;
   }
 };
 
 export default Icon;
-

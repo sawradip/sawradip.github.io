@@ -26,6 +26,8 @@ const StyledProject = styled.li`
 
   @media (max-width: 768px) {
     ${({ theme }) => theme.mixins.boxShadow};
+    grid-template-rows: auto 1fr;
+    align-items: start;
   }
 
   &:not(:last-of-type) {
@@ -50,6 +52,7 @@ const StyledProject = styled.li`
       }
       @media (max-width: 768px) {
         grid-column: 1 / -1;
+        grid-row: 2 / -1;
         padding: 40px 40px 30px;
         text-align: left;
       }
@@ -88,6 +91,7 @@ const StyledProject = styled.li`
 
       @media (max-width: 768px) {
         grid-column: 1 / -1;
+        grid-row: 1 / 2;
       }
     }
   }
@@ -105,8 +109,8 @@ const StyledProject = styled.li`
       display: flex;
       flex-direction: column;
       justify-content: center;
-      height: 100%;
       grid-column: 1 / -1;
+      grid-row: 2 / -1;
       padding: 40px 40px 30px;
       z-index: 5;
     }
@@ -250,16 +254,23 @@ const StyledProject = styled.li`
 
     @media (max-width: 768px) {
       grid-column: 1 / -1;
-      height: 100%;
-      opacity: 0.25;
+      grid-row: 1 / 2;
+      margin-bottom: 20px;
     }
 
     a {
+      position: relative;
       width: 100%;
       height: 100%;
       background-color: var(--green);
       border-radius: var(--border-radius);
       vertical-align: middle;
+      display: block;
+
+      @media (max-width: 768px) {
+        height: auto;
+        background-color: var(--green);
+      }
 
       &:hover,
       &:focus {
@@ -296,9 +307,10 @@ const StyledProject = styled.li`
 
       @media (max-width: 768px) {
         object-fit: cover;
-        width: auto;
-        height: 100%;
-        filter: grayscale(100%) contrast(1) brightness(50%);
+        width: 100%;
+        height: auto;
+        mix-blend-mode: multiply;
+        filter: grayscale(100%) contrast(1) brightness(90%);
       }
     }
   }

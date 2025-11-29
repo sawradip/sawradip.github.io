@@ -7,10 +7,14 @@ import { GlobalStyle, theme } from '@/styles';
 import { Nav, Social, Email, Footer, Loader } from '@/components';
 import { usePathname } from 'next/navigation';
 
-const StyledContent = styled.div`
+const StyledContent = styled.div<{ isInitialLoad?: boolean }>`
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  ${props => props.isInitialLoad && `
+    opacity: 0;
+    visibility: hidden;
+  `}
 `;
 
 interface LayoutWrapperProps {
@@ -20,7 +24,8 @@ interface LayoutWrapperProps {
 export default function LayoutWrapper({ children }: LayoutWrapperProps) {
   const pathname = usePathname();
   const isHome = pathname === '/';
-  const [isLoading, setIsLoading] = useState(false);
+  // Initialize loading state to true for home page to prevent flash
+  const [isLoading, setIsLoading] = useState(isHome);
   const [mounted, setMounted] = useState(false);
 
   // Sets target="_blank" rel="noopener noreferrer" on external links
@@ -39,11 +44,9 @@ export default function LayoutWrapper({ children }: LayoutWrapperProps) {
 
   useEffect(() => {
     setMounted(true);
-    // Only show loader on home page and only on client
-    if (isHome) {
-      setIsLoading(true);
-    }
-  }, [isHome]);
+    // isLoading is already initialized correctly for home page
+    // No need to set it again here
+  }, []);
 
   useEffect(() => {
     if (!mounted || isLoading) {
@@ -65,6 +68,7 @@ export default function LayoutWrapper({ children }: LayoutWrapperProps) {
   }, [isLoading, mounted]);
 
   // Prevent hydration mismatch by not rendering loader on initial server render
+  // But hide content on home page to prevent flash of content
   if (!mounted) {
     return (
       <ThemeProvider theme={theme}>
@@ -72,7 +76,7 @@ export default function LayoutWrapper({ children }: LayoutWrapperProps) {
         <a className="skip-to-content" href="#content">
           Skip to Content
         </a>
-        <StyledContent>
+        <StyledContent isInitialLoad={isHome}>
           <Nav isHome={isHome} />
           <Social isHome={isHome} />
           <Email isHome={isHome} />

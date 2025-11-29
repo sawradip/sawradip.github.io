@@ -3,20 +3,20 @@ export const config = {
 
   socialMedia: [
     {
-      name: 'GitHub',
-      url: 'https://github.com/sawradip',
+      name: 'GoogleScholar',
+      url: 'https://scholar.google.com/citations?user=YdqvDuIAAAAJ&hl=en',
     },
     {
       name: 'Linkedin',
       url: 'https://www.linkedin.com/in/sawradip',
     },
     {
-      name: 'Facebook',
-      url: 'https://facebook.com/sawradip',
+      name: 'GitHub',
+      url: 'https://github.com/sawradip',
     },
     {
-      name: 'GoogleScholar',
-      url: 'https://scholar.google.com/citations?user=YOUR_USER_ID',
+      name: 'Facebook',
+      url: 'https://facebook.com/sawradip',
     },
   ],
 
